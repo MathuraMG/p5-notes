@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Coding</title>
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  </head>
+  <body>
+    <h1> p5 tutorials </h1>
+
+
+    <section>
+      <h2> Functions </h2>
+      <h3> What is a function? </h3>
+      <p>
+        A function is basically a block of code that does one particular thing
+        Setup() and draw() that you have been using till now are also functions! setup() contains a block of code that executes only once in the beginning and draw() contains a block of code that executes in a loop.
+      </p>
+      <p>
+        Similarly we are now going to write our own functions!
+        Imagine if you want to draw a the target logo where your cursor is, each time you pressed your key - you could do the below
+      </p>
+      <script type="text/p5">
+      function setup() {
+        createCanvas(400, 400);
+        background(220);
+      }
+      function draw() {
+
+      }
+      function mousePressed() {
+        fill("red");
+        ellipse(mouseX,mouseY, 30, 30);
+        fill("white");
+        ellipse(mouseX,mouseY, 20, 20);
+        fill("red");
+        ellipse(mouseX,mouseY, 10, 10);
+      }
+      </script>
+      <p>
+        or you could <b>define</b> a function called <b>drawTarget</b> and call it each time press the mouse, like the below.
+      </p>
+      <script type="text/p5">
+      function setup() {
+        createCanvas(400, 400);
+        background(220);
+      }
+      function draw() {
+
+      }
+      function mousePressed() {
+        drawTarget();
+      }
+      function drawTarget() {
+        fill("red");
+        ellipse(mouseX,mouseY, 30, 30);
+        fill("white");
+        ellipse(mouseX,mouseY, 20, 20);
+        fill("red");
+        ellipse(mouseX,mouseY, 10, 10);
+      }
+      </script>
+      <p> Functions are however maily used to reduce repetetive code. Imagine if you wanted 20 owls on your screen. Drawing 20 owls from the beginning is not fun :| . Instead you can write a function the will draw an owl and then call that function 20 times! You can even pass a parameter to the function telling it where to draw.
+      </p>
+      <p>
+        For instance, let's say you had to draw 3 target logos all over the page
+      </p>
+      <script type="text/p5">
+      function setup() {
+        createCanvas(400, 400);
+        background(220);
+
+        //first logo
+        fill("red");
+        ellipse(150,150, 30, 30);
+        fill("white");
+        ellipse(150,150, 20, 20);
+        fill("red");
+        ellipse(150,150, 10, 10);
+
+        //second logo
+        fill("red");
+        ellipse(200,200, 30, 30);
+        fill("white");
+        ellipse(200,200, 20, 20);
+        fill("red");
+        ellipse(200,200, 10, 10);
+
+        //third logo
+        fill("red");
+        ellipse(250,250, 30, 30);
+        fill("white");
+        ellipse(250,250, 20, 20);
+        fill("red");
+        ellipse(250,250, 10, 10);
+      }
+
+      </script>
+
+      <p>
+        Or you could write a function like the below called 'drawTarget'
+      </p>
+      <script type="text/p5">
+      function setup() {
+        createCanvas(400, 400);
+        background(220);
+
+        //first logo
+        drawTarget(150,150);
+
+        //second logo
+        drawTarget(200,200);
+
+        //third logo
+        drawTarget(250,250);
+      }
+
+
+      function drawTarget(x,y) {
+        fill("red");
+        ellipse(x,y, 30, 30);
+        fill("white");
+        ellipse(x,y, 20, 20);
+        fill("red");
+        ellipse(x,y, 10, 10);
+      }
+      </script>
+    </section>
+
+    <section>
+      <h2> textSize() </h2>
+      <p>
+        So, now since you can now write text using the text() function - we can make a fun program.
+      </p>
+      <p>
+          There is another function called textSize(size) - it determines the size of the text that you type.
+      </p>
+      <p>
+        Try this example
+      </p>
+      <script type="text/p5">
+      function setup() {
+        createCanvas(400, 400);
+      	background(220);
+      	textSize(12);
+      	text("Hello", 50 ,25);
+      	textSize(16);
+      	text("Hello", 50, 50);
+      	textSize(20);
+      	text("Hello", 50,75);
+      	//notice how I am increasing the y position by the same amount as the font size
+      }
+      function draw() {
+
+      }
+      </script>
+      <p>
+        Awesome!
+        So, to try all this together along with for loop.
+        Write a program so that you get the below output :)
+      </p>
+      <img src="/assets/textSize.png"/>
+    </section>
+
+    <section>
+      <h2> Plain If Else Block </h2>
+      <p>
+        There are sometimes where you want an instruction executed IF a certain condition is met.
+      </p>
+      <p>
+        For instance,
+      </p>
+      <textarea>
+        <b>If</b> the milk is old, <b>boil it</b>
+        <b>else</b>  do nothing
+      </textarea>
+      <p>
+        Similarly, in code, we have instances where we want certain instructions carried out if a condition is met
+      </p>
+      <p>
+        Example,
+      </p>
+      <textarea>
+        If the number is 10
+        Draw a circle
+        Else
+        Draw a square
+      </textarea>
+      <p>
+        The code for this is as follows
+      </p>
+      <textarea>
+        if ( condition ) {
+         // do something
+        }
+
+        else {
+         do something else
+        }
+      </textarea>
+        For example, try this code, and change the value of i and see how the output changes
+      <script type="text/p5">
+        var i =10;
+        function setup() {
+          createCanvas(400,400);
+          fill(255,0,0);
+          if(i == 10) {
+            ellipse(20,20,20,20);
+          }
+          else {
+            rect(20,20,20,20);
+          }
+        }
+      </script>
+      <p>
+        <b> Things to note: </b>
+        <ul>
+          <li>When we are checking equality inside an if statement, we use to 2 equal to signs -> ==</li>
+          <li> To check if something is NOT equal to , we do this -> != </li>
+        </ul>
+      </p>
+      <p>
+        <b> Examples to try </b>
+        <ul>
+          <li> Write a for loop that counts from 1 to 10. <br>
+            When i is equal to 5, draw a square, else always draw a circle. ( Draw them all next to each other)</li>
+          <li> Draw 10 rectangles on the screen, from left to right.
+            <br>
+            Make the first 5 rectangles red and the next 5 blue.
+            <br>
+            Use for loop and if else statements </li>
+        </ul>
+      </p>
+
+    </section>
+
+    <section>
+      <h2>  If Else-if blocks </h2>
+      <p>
+        This is a syntax used when there are multiple conditions you want to check for.
+      </p>
+      <p>
+        For instance,
+      </p>
+      <textarea>
+        If the milk is from yesterday, boil it
+        Else if the milk is from last week, throw it
+        else  do nothing
+      </textarea>
+      <p>
+        Similarly, in code, we have instances where we want certain instructions carried out if a condition is met
+      </p>
+      <p>
+        Example,
+      </p>
+      <textarea>
+        If the number is 10
+        Draw a circle
+        Else
+        Draw a square
+      </textarea>
+      <p>
+        The code for this is as follows
+      </p>
+      <textarea>
+        if ( condition ) {
+         // do something
+        }
+
+        else {
+         do something else
+        }
+      </textarea>
+        For example, try this code, and change the value of i and see how the output changes
+      <script type="text/p5">
+        var i =10;
+        function setup() {
+          createCanvas(400,400);
+          fill(255,0,0);
+          if(i == 10) {
+            ellipse(20,20,20,20);
+          }
+          else {
+            rect(20,20,20,20);
+          }
+        }
+      </script>
+      <p>
+        <b> Things to note: </b>
+        <ul>
+          <li>When we are checking equality inside an if statement, we use to 2 equal to signs -> ==</li>
+          <li> To check if something is NOT equal to , we do this -> != </li>
+        </ul>
+      </p>
+      <p>
+        <b> Examples to try </b>
+        <ul>
+          <li> Write a for loop that counts from 1 to 10. <br>
+            When i is equal to 5, draw a square, else always draw a circle. ( Draw them all next to each other)</li>
+          <li> Draw 10 rectangles on the screen, from left to right.
+            <br>
+            Make the first 5 rectangles red and the next 5 blue.
+            <br>
+            Use for loop and if else statements </li>
+        </ul>
+      </p>
+
+    </section>
+
+    <section>
+      <h2>  If Else-if blocks </h2>
+      <p>
+        This is a syntax used when there are multiple conditions you want to check for.
+      </p>
+      <p>
+        For instance,
+      </p>
+      <textarea>
+        If the milk is from yesterday, boil it
+        Else if the milk is from last week, throw it
+        else  do nothing
+      </textarea>
+      <p>
+        In our programs, it could be something like this -
+      </p>
+
+      <textarea>
+        If the number is 10
+        Draw a red circle
+        Else if the number is 20
+        Draw a blue circle
+        Else
+        Draw a green circle
+
+      </textarea>
+      <p>
+        The last <b>else</b> is usually what catches all OTHER conditions that you have not specified.
+      </p>
+      <textarea>
+        The code for this is as follows
+        if ( condition ) {
+         // do something
+        }
+        else if (condition) {
+        //do something
+        }
+        else {
+         do something else
+        }
+      </textarea>
+        For example, try this code, and change the value of i and see how the output changes
+      <script type="text/p5">
+        var i =10;
+        function setup() {
+          createCanvas(400,400);
+          fill(255,0,0);
+          if(i == 10) {
+            ellipse(20,20,20,20);
+          }
+          else {
+            rect(20,20,20,20);
+          }
+        }
+      </script>
+      <p>
+        <b> Things to note: </b>
+        <ul>
+          <li>When we are checking equality inside an if statement, we use to 2 equal to signs -> ==</li>
+          <li> To check if something is NOT equal to , we do this -> != </li>
+        </ul>
+      </p>
+      <p>
+        <b> Examples to try </b>
+        <ul>
+          <li> Write a for loop that counts from 1 to 10. <br>
+            When i is equal to 5, draw a square, else always draw a circle. ( Draw them all next to each other)</li>
+          <li> Draw 10 rectangles on the screen, from left to right.
+            <br>
+            Make the first 5 rectangles red and the next 5 blue.
+            <br>
+            Use for loop and if else statements </li>
+        </ul>
+      </p>
+
+    </section>
+
+  </body>
+</html>
